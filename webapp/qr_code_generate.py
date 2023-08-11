@@ -1,8 +1,8 @@
 # https://pypi.org/project/qrcode/
 # pip install "qrcode[pil]"
-
+import PIL.Image
 import qrcode
-
+from PIL import Image
 img = qrcode.make('Some data here')
 type(img)  # qrcode.image.pil.PilImage
 img.save("some_file.png")
@@ -18,4 +18,13 @@ qr = qrcode.QRCode(
 qr.add_data('Some data')
 qr.make(fit=True)
 
+
 img = qr.make_image(fill_color="black", back_color="white")
+img.show()
+
+img.save("newestQR.png", kind="png")
+
+
+# with open("savedk_qr_code.png", "wb+") as file_qr:
+#     file_qr.write(img)
+#     print("SAVED as savedqrcode")

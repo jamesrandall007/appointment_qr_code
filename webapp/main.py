@@ -24,6 +24,11 @@ def root():
     return FileResponse(html_path)
 
 
+@app.get('/qr_code')
+def make_qr_code(qr_string):
+    return qr_string
+
+
 @app.post('/generate')
 def generate(body: Body):
     """
